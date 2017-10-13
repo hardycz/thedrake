@@ -40,10 +40,10 @@ public class Tester01 {
 		assertSame(info, troop.info());
 		assertEquals(PlayingSide.BLUE, troop.side());
 		assertEquals(TroopFace.FRONT, troop.face());
-		//assertTrue(troop.pivot().equalsTo(1, 1));
+		assertTrue(troop.pivot().equalsTo(1, 1));
 
-		//assertTrue(troop.flipped() != troop);
-		//assertEquals(TroopFace.BACK, troop.flipped().face());
-		//assertTrue(troop.flipped().pivot().equalsTo(0, 1));
+		assertTrue(troop.flipped() != troop);
+		assertEquals(TroopFace.BACK, troop.flipped().face());
+		assertTrue(troop.flipped().pivot().equalsTo(0, 1));
 	}
 }

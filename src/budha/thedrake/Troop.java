@@ -28,13 +28,11 @@ public class Troop {
         return face;
     }
     // Pivot té strany, kterou je zrovna jednotka otočena nahoru
-    /* TODO
     public Offset2D pivot(){
-
-    }*/
+        return info.pivot(face);
+    }
     // Vytvoří jednotku, která má stejné vlastnosti jako tato, jen je otočena druhou stranou nahoru.
-    /* TODO
     public Troop flipped(){
-
-    }*/
+        return new Troop(info, side, (face==TroopFace.BACK)?TroopFace.FRONT:TroopFace.BACK);
+    }
 }
