@@ -13,6 +13,14 @@ public class TroopInfo {
         this.frontPivot= frontPivot;
         this.backPivot = backPivot;
     }
+    /* TODO
+    *
+    // Konstruktor, který nastaví lícový i rubový pivot na stejnou hodnotu
+public TroopInfo(String name, Offset2D pivot)
+
+    // Konstruktor, který nastaví lícový i rubový pivot na hodnotu [1, 1]
+public TroopInfo(String name)
+   */
 
     // Vrací jméno
     public String name(){
