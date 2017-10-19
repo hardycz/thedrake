@@ -12,8 +12,13 @@ public class Board {
         this.playingBoard = new Tile[dimension][dimension];
         this.boardDimension = dimension;
 
+        for(int i = 0; i < boardDimension; ++i){
+            for(int j = 0; j < boardDimension; ++j){
+                playingBoard[i][j] = new EmptyTile(new TilePosition(i,j));
+            }
+        }
         for(Tile t : tiles){
-
+            playingBoard[t.position().i][t.position().j] = new TroopTile(t.position(), t.troop());
         }
     }
 
@@ -24,19 +29,23 @@ public class Board {
 
     // Vrací dlaždici na zvolené pozici. Pokud je pozice mimo desku, vyhazuje IllegalArgumentException
     public Tile tileAt(TilePosition position){
-        if(!contains(position))
+        if(this.contains(position)){
+            return playingBoard[position.i][position.j];
+        }else{
             throw new IllegalArgumentException();
-
+        }
     }
 
     // Ověřuje, že pozice se nachází na hrací desce
     public boolean contains(TilePosition... positions){
 
         for(TilePosition t : positions){
-            if(t.column() > boardDimension)
+            if(t.i > boardDimension){
                 return false;
-            else if(t.row() > boardDimension)
+            }
+            else if(t.j > boardDimension){
                 return false;
+            }
         }
         return true;
     }
