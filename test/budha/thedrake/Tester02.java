@@ -1,5 +1,4 @@
 package budha.thedrake;
-/* TODO
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
@@ -9,7 +8,7 @@ import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
-import budha.thedrake.Board;
+//import budha.thedrake.Board;
 import budha.thedrake.EmptyTile;
 import budha.thedrake.Offset2D;
 import budha.thedrake.PlayingSide;
@@ -53,7 +52,7 @@ public class Tester02 {
 		assertTrue(troopTile.hasTroop());
 		assertSame(drake, troopTile.troop());
 	}
-
+/*
 	@Test
 	public void boardTest() {
 		Board board = new Board(5);
@@ -94,7 +93,5 @@ public class Tester02 {
 				assertTrue(board.tileAt(pos) instanceof EmptyTile);
 			}
 		}
-	}
+	}*/
 }
-
-*/

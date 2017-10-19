@@ -3,6 +3,21 @@ package budha.thedrake;
 /**
  * Created by havrda on 19/10/2017.
  */
-public class EmptyTile {
-    public EmptyTile(TilePosition position){}
+public class EmptyTile extends Tile {
+    public EmptyTile(TilePosition position){
+        super(position);
+    }
+    @Override
+    public boolean acceptsTroop(Troop troop){
+        return true;
+    }
+    @Override
+    public boolean hasTroop(){
+        return false;
+    }
+    @Override
+    public Troop troop(){
+     throw new UnsupportedOperationException();
+    }
+
 }
