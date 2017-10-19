@@ -3,11 +3,14 @@ package budha.thedrake;
 /**
  * Created by havrda on 16/10/2017.
  */
-/* TODO
+
 public class Board {
+    Tile[][] pole;
     // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specefikovanými dlaždicemi.
     // Všechny ostatní dlažice se berou jako prázdné.
-    public Board(int dimension, Tile... tiles)
+    public Board(int dimension, Tile... tiles){
+        System.out.print("test");
+    }
 
     // Rozměr hrací desky
     public int dimension()
@@ -21,4 +24,4 @@ public class Board {
     // Vytváří novou hrací desku s novými dlaždicemi
     public Board withTiles(Tile... tiles)
 }
-*/
+
