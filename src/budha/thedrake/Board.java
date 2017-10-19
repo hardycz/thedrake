@@ -40,10 +40,10 @@ public class Board {
     public boolean contains(TilePosition... positions){
 
         for(TilePosition t : positions){
-            if(t.i > boardDimension){
+            if(t.i >= boardDimension || t.i<0){
                 return false;
             }
-            else if(t.j > boardDimension){
+            else if(t.j >= boardDimension || t.j<0){
                 return false;
             }
         }
@@ -52,9 +52,7 @@ public class Board {
 
     // Vytváří novou hrací desku s novými dlaždicemi
     public Board withTiles(Tile... tiles){
-
-
-
+        return null;
     }
 }
 

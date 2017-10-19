@@ -21,7 +21,6 @@ import budha.thedrake.TroopTile;
 
 
 public class Tester02 {
-
 	@Test
 	public void troopInfoTest() {
 		TroopInfo info = new TroopInfo("Drake", new Offset2D(0, 0));
@@ -52,7 +51,6 @@ public class Tester02 {
 		assertTrue(troopTile.hasTroop());
 		assertSame(drake, troopTile.troop());
 	}
-/*
 	@Test
 	public void boardTest() {
 		Board board = new Board(5);
@@ -79,7 +77,7 @@ public class Tester02 {
 		
 		TroopTile tile1 = new TroopTile(new TilePosition("c3"), drake1); 
 		TroopTile tile2 = new TroopTile(new TilePosition("d4"), drake2);
-		
+		/*
 		Board board2 = board.withTiles(tile1, tile2); 
 		assertSame(tile1, board2.tileAt(new TilePosition("c3")));
 		assertSame(tile2, board2.tileAt(new TilePosition("d4")));
@@ -92,6 +90,6 @@ public class Tester02 {
 				assertTrue(board.contains(pos));
 				assertTrue(board.tileAt(pos) instanceof EmptyTile);
 			}
-		}
-	}*/
+		}*/
+	}
 }
