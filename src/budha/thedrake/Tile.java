@@ -24,10 +24,4 @@ public abstract class Tile {
 }
 */
 
-/* TODO
-konstruktory jednotlivych potomku:
-    - public EmptyTile(TilePosition position)
-    - public TroopTile(TilePosition position, Troop troop)
-
-*/
 
