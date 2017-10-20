@@ -4,8 +4,9 @@ package budha.thedrake;
  * Created by havrda on 16/10/2017.
  */
 public class Board {
-    private final Tile playingBoard[][];
+    private Tile playingBoard[][];
     private final int boardDimension;
+
     // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specefikovanými dlaždicemi.
     // Všechny ostatní dlažice se berou jako prázdné.
     public Board(int dimension, Tile... tiles){
@@ -38,7 +39,6 @@ public class Board {
 
     // Ověřuje, že pozice se nachází na hrací desce
     public boolean contains(TilePosition... positions){
-
         for(TilePosition t : positions){
             if(t.i >= boardDimension || t.i<0){
                 return false;
@@ -49,10 +49,25 @@ public class Board {
         }
         return true;
     }
-
+    // TODO
     // Vytváří novou hrací desku s novými dlaždicemi
     public Board withTiles(Tile... tiles){
-        return null;
+        Board newBoard = new Board(boardDimension);
+        newBoard.copyBoard(playingBoard);
+        newBoard.insertToBoard(tiles);
+        return newBoard;
+    }
+    public void copyBoard(Tile newBoard[][]){
+        //this.playingBoard = new Tile[boardDimension][boardDimension];
+        for(int i = 0; i < boardDimension; i++)
+            playingBoard[i] = newBoard[i].clone();
+    }
+    public void insertToBoard(Tile... tiles){
+        for(Tile t : tiles){
+            String test = t.troop().info().name();
+            playingBoard[t.position().i][t.position().j] = new TroopTile(t.position(), t.troop());
+        }
     }
 }
+
 
