@@ -10,8 +10,8 @@ public class Board {
     // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specefikovanými dlaždicemi.
     // Všechny ostatní dlažice se berou jako prázdné.
     public Board(int dimension, Tile... tiles){
-        this.playingBoard = new Tile[dimension][dimension];
-        this.boardDimension = dimension;
+        playingBoard = new Tile[dimension][dimension];
+        boardDimension = dimension;
 
         for(int i = 0; i < boardDimension; ++i){
             for(int j = 0; j < boardDimension; ++j){
@@ -19,7 +19,11 @@ public class Board {
             }
         }
         for(Tile t : tiles){
-            playingBoard[t.position().i][t.position().j] = new TroopTile(t.position(), t.troop());
+            if(t.hasTroop()) {
+                playingBoard[t.position().i][t.position().j] = t;
+            }
+            else
+                playingBoard[t.position().i][t.position().j] = new EmptyTile(new TilePosition(t.position().i,t.position().j));
         }
     }
 
@@ -40,35 +44,19 @@ public class Board {
     // Ověřuje, že pozice se nachází na hrací desce
     public boolean contains(TilePosition... positions){
         for(TilePosition t : positions){
-            if(t.i >= boardDimension || t.i<0){
+            if(t.i >= boardDimension || t.i < 0){
                 return false;
             }
-            else if(t.j >= boardDimension || t.j<0){
+            else if(t.j >= boardDimension || t.j < 0){
                 return false;
             }
         }
         return true;
     }
-    // TODO
     // Vytváří novou hrací desku s novými dlaždicemi
     public Board withTiles(Tile... tiles){
-//        Board newBoard = new Board(boardDimension);
-//        newBoard.copyBoard(playingBoard);
-//        newBoard.insertToBoard(tiles);
-//        return newBoard;
         return new Board(boardDimension, tiles);
     }
-//    public void copyBoard(Tile newBoard[][]){
-//        //this.playingBoard = new Tile[boardDimension][boardDimension];
-//        for(int i = 0; i < boardDimension; i++)
-//            playingBoard[i] = newBoard[i].clone();
-//    }
-//    public void insertToBoard(Tile... tiles){
-////        for(Tile t : tiles){
-////            String test = t.troop().info().name();
-////            playingBoard[t.position().i][t.position().j] = new TroopTile(t.position(), t.troop());
-////        }
-//    }
 }
 
 
