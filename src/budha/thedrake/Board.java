@@ -52,22 +52,23 @@ public class Board {
     // TODO
     // Vytváří novou hrací desku s novými dlaždicemi
     public Board withTiles(Tile... tiles){
-        Board newBoard = new Board(boardDimension);
-        newBoard.copyBoard(playingBoard);
-        newBoard.insertToBoard(tiles);
-        return newBoard;
+//        Board newBoard = new Board(boardDimension);
+//        newBoard.copyBoard(playingBoard);
+//        newBoard.insertToBoard(tiles);
+//        return newBoard;
+        return new Board(boardDimension, tiles);
     }
-    public void copyBoard(Tile newBoard[][]){
-        //this.playingBoard = new Tile[boardDimension][boardDimension];
-        for(int i = 0; i < boardDimension; i++)
-            playingBoard[i] = newBoard[i].clone();
-    }
-    public void insertToBoard(Tile... tiles){
-        for(Tile t : tiles){
-            String test = t.troop().info().name();
-            playingBoard[t.position().i][t.position().j] = new TroopTile(t.position(), t.troop());
-        }
-    }
+//    public void copyBoard(Tile newBoard[][]){
+//        //this.playingBoard = new Tile[boardDimension][boardDimension];
+//        for(int i = 0; i < boardDimension; i++)
+//            playingBoard[i] = newBoard[i].clone();
+//    }
+//    public void insertToBoard(Tile... tiles){
+////        for(Tile t : tiles){
+////            String test = t.troop().info().name();
+////            playingBoard[t.position().i][t.position().j] = new TroopTile(t.position(), t.troop());
+////        }
+//    }
 }
 
 
