@@ -5,7 +5,7 @@ package budha.thedrake;
  */
 
 public abstract class Tile {
-    TilePosition position;
+    protected TilePosition position;
     // Konstruktor, který očekává pozici dlaždice na hracím plánu
     protected Tile(TilePosition position) {
         this.position = position;

@@ -4,7 +4,7 @@ package budha.thedrake;
  * Created by havrda on 19/10/2017.
  */
 public class TroopTile extends Tile {
-    Troop troop;
+    private Troop troop;
     public TroopTile(TilePosition position, Troop troop){
         super(position);
         this.troop = troop;

@@ -77,11 +77,11 @@ public class Tester02 {
 		
 		TroopTile tile1 = new TroopTile(new TilePosition("c3"), drake1); 
 		TroopTile tile2 = new TroopTile(new TilePosition("d4"), drake2);
-		/*
+
 		Board board2 = board.withTiles(tile1, tile2); 
 		assertSame(tile1, board2.tileAt(new TilePosition("c3")));
 		assertSame(tile2, board2.tileAt(new TilePosition("d4")));
-		
+
 		//Check, that the board was copied properly
 		assertTrue(board != board2);		
 		for(int row = 1; row <= 5; row++) {
@@ -90,6 +90,6 @@ public class Tester02 {
 				assertTrue(board.contains(pos));
 				assertTrue(board.tileAt(pos) instanceof EmptyTile);
 			}
-		}*/
+		}
 	}
 }
