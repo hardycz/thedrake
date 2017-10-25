@@ -1,8 +1,14 @@
 package budha.thedrake;
 
-/**
- * Created by havrda on 12/10/2017.
- */
 public enum TroopFace {
-    FRONT, BACK
+    FRONT, BACK {
+        @Override
+        public TroopFace flipped() {
+            return FRONT;
+        }
+    };
+
+    public TroopFace flipped() {
+        return BACK;
+    }
 }
