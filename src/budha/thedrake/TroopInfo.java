@@ -3,7 +3,11 @@ package budha.thedrake;
 /**
  * Created by havrda on 12/10/2017.
  */
+
 public class TroopInfo {
+    //TODO
+    //Do třídy TroopInfo přidejte dva atributy: frontActions a backActions. Upravte patřičně všechny konstruktory,
+    // abychom mohli každou jednotku vytvořit se seznamem jejích rubových i lícových akci.
     private final String name;
     private final Offset2D frontPivot;
     private final Offset2D backPivot;
@@ -21,7 +25,8 @@ public TroopInfo(String name, Offset2D pivot) {
 public TroopInfo(String name){
     this(name, new Offset2D(1,1));
 }
-
+    //Přidejte do třídy metod, která vrací akce pro zadanou stranu jednotky.
+    public List<TroopAction> actions(TroopFace face)
 
     // Vrací jméno
     public String name(){

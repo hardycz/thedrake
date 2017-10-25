@@ -55,6 +55,49 @@ public class Board {
         newBoard.insertToBoard(tiles);
         return newBoard;
     }
+
+    // TODO
+    // ukladani board atribut
+    public Board withCaptureAndTiles(TroopInfo info, PlayingSide side, Tile... tiles)
+
+    // Lze z dané pozice vzíjt jednotku, nebo-li, stojí na dané pozici nějaká jednotka?
+    public boolean canTakeFrom(TilePosition origin)
+
+    // Lze na danou pozici postavit zadanou jednotku?
+    public boolean canPlaceTo(Troop troop, TilePosition target)
+
+    // Může zadaná jednotka zajmout na pozici target soupeřovu jednotku?
+    public boolean canCaptureOn(Troop troop, TilePosition target) {
+
+/*
+ * Může zadaná jednotka udělat krok z pozice origin na pozici target
+ * bez toho, aby zajala soupeřovu jednotku?
+ */
+        public boolean canStepOnly(TilePosition origin, TilePosition target)
+
+/*
+ * Může zadaná jednotka udělat krok z pozice origin na pozici target
+ * s tím, že tak zajme soupeřovu jednotku?
+ */
+        public boolean canStepAndCapture(TilePosition origin, TilePosition target)
+
+/*
+ * Nová hrací deska, ve které jednotka na pozici origin se přesunula
+ * na pozici target bez toho, aby zajala soupeřovu jednotku.
+ */
+        public Board stepOnly(TilePosition origin, TilePosition target)
+
+/*
+ * Nová hrací deska, ve které jednotka na pozici origin se přesunula
+ * na pozici target, kde zajala soupeřovu jednotku.
+ */
+        public Board stepAndCapture(TilePosition origin, TilePosition target)
+
+/*
+ * Nová hrací deska, ve které jednotka zůstává stát na pozici origin
+ * a zajme soupeřovu jednotku na pozici target.
+ */
+        public Board captureOnly(TilePosition origin, TilePosition target)
     public void copyBoard(Tile newBoard[][]){
         for(int i = 0; i < boardDimension; i++)
             playingBoard[i] = newBoard[i].clone();
