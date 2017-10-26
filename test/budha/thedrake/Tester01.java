@@ -44,6 +44,7 @@ public class Tester01 {
 
 		assertTrue(troop.flipped() != troop);
 		assertEquals(TroopFace.BACK, troop.flipped().face());
-		assertTrue(troop.flipped().pivot().equalsTo(0, 1));
+		assertTrue(troop.flipped().info().name()=="Archer");
+
 	}
 }

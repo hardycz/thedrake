@@ -6,12 +6,14 @@ package budha.thedrake;
 public class Board {
     private final Tile playingBoard[][];
     private final int boardDimension;
+    private CapturedTroops capturedTroops;
 
     // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specefikovanými dlaždicemi.
     // Všechny ostatní dlažice se berou jako prázdné.
     public Board(int dimension, Tile... tiles){
         this.playingBoard = new Tile[dimension][dimension];
         this.boardDimension = dimension;
+        this.capturedTroops = new CapturedTroops();
 
         for(int i = 0; i < boardDimension; ++i){
             for(int j = 0; j < boardDimension; ++j){
@@ -22,12 +24,15 @@ public class Board {
             playingBoard[t.position().i][t.position().j] = t;
         }
     }
-
     // Rozměr hrací desky
     public int dimension(){
         return this.boardDimension;
     }
 
+    // Getter pro zajate jednotky
+    public CapturedTroops CapturedTroops(){
+        return capturedTroops;
+    }
     // Vrací dlaždici na zvolené pozici. Pokud je pozice mimo desku, vyhazuje IllegalArgumentException
     public Tile tileAt(TilePosition position){
         if(this.contains(position)){
@@ -51,15 +56,32 @@ public class Board {
     // Vytváří novou hrací desku s novými dlaždicemi
     public Board withTiles(Tile... tiles){
         Board newBoard = new Board(boardDimension);
-        newBoard.copyBoard(playingBoard);
+        newBoard.copyBoard(playingBoard, capturedTroops);
         newBoard.insertToBoard(tiles);
         return newBoard;
     }
 
+    // Kopirovani boardu - hraci desky a zajatych jednotek
+    public void copyBoard(Tile newBoard[][], CapturedTroops oldCapturedTroops){
+        for(int i = 0; i < boardDimension; i++)
+            playingBoard[i] = newBoard[i].clone();
+        capturedTroops = oldCapturedTroops;
+    }
+
+    // Vlozeni novych jednotek na hraci desku
+    public void insertToBoard(Tile... tiles){
+        for(Tile t : tiles){
+            playingBoard[t.position().i][t.position().j] = t;
+        }
+    }
+
     // TODO
     // ukladani board atribut
-    //public Board withCaptureAndTiles(TroopInfo info, PlayingSide side, Tile... tiles)
-
+    public Board withCaptureAndTiles(TroopInfo info, PlayingSide side, Tile... tiles){
+        Board newBoard = this.withTiles(tiles);
+        newBoard.CapturedTroops().withTroop(side, info);
+        return newBoard;
+    }
     // Lze z dané pozice vzíjt jednotku, nebo-li, stojí na dané pozici nějaká jednotka?
     //public boolean canTakeFrom(TilePosition origin)
 
@@ -91,20 +113,21 @@ public class Board {
  * Nová hrací deska, ve které jednotka na pozici origin se přesunula
  * na pozici target, kde zajala soupeřovu jednotku.
  */
-        // public Board stepAndCapture(TilePosition origin, TilePosition target)
+    public Board stepAndCapture(TilePosition origin, TilePosition target) {
+        Troop attacker = tileAt(origin).troop();
+        Troop targetTroop = tileAt(target).troop();
+
+        return withCaptureAndTiles(
+                targetTroop.info(),
+                targetTroop.side(),
+                new EmptyTile(origin),
+                new TroopTile(target, attacker.flipped()));
+    }
 
 /*
  * Nová hrací deska, ve které jednotka zůstává stát na pozici origin
  * a zajme soupeřovu jednotku na pozici target.
  */
     // public Board captureOnly(TilePosition origin, TilePosition target)
-    public void copyBoard(Tile newBoard[][]){
-        for(int i = 0; i < boardDimension; i++)
-            playingBoard[i] = newBoard[i].clone();
-    }
-    public void insertToBoard(Tile... tiles){
-        for(Tile t : tiles){
-            playingBoard[t.position().i][t.position().j] = t;
-        }
-    }
+
 }

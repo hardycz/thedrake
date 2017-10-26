@@ -4,31 +4,38 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class CapturedTroops{
-    private List<TroopInfo> troopsPlayer1;
-    private List<TroopInfo> troopsPlayer2;
-//TODO
+public class CapturedTroops {
+    private List<TroopInfo> troopsPlayerOne;
+    private List<TroopInfo> troopsPlayerTwo;
+
+    //TODO
 // Konstruktor vytvářející prázdné seznamy
-    public CapturedTroops(){
-        troopsPlayer1 = new ArrayList<TroopInfo>();
-        troopsPlayer2 = new ArrayList<TroopInfo>();
+    public CapturedTroops() {
+        troopsPlayerOne = new ArrayList<TroopInfo>();
+        troopsPlayerTwo = new ArrayList<TroopInfo>();
     }
 
-// Vrací seznam zajatých jednotek pro daného hráče
-    public List<TroopInfo> troops(PlayingSide side){
-        return (side == PlayingSide.ORANGE)?
-                Collections.unmodifiableList(troopsPlayer1):
-                Collections.unmodifiableList(troopsPlayer2);
+    // Vrací seznam zajatých jednotek pro daného hráče
+    public List<TroopInfo> troops(PlayingSide side) {
+        return (side == PlayingSide.ORANGE) ?
+                Collections.unmodifiableList(troopsPlayerOne):
+                Collections.unmodifiableList(troopsPlayerTwo);
     }
 
-// Přidává nově zajatou jednotku na začátek seznamu zajatých jednotek daného hráče.
-    public CapturedTroops withTroop(PlayingSide side, TroopInfo info){
-       CapturedTroops newCapturedTroops = new CapturedTroops();
-       newCapturedTroops.cloneCapturedTroops();
-
+    // Přidává nově zajatou jednotku na začátek seznamu zajatých jednotek daného hráče.
+    public CapturedTroops withTroop(PlayingSide side, TroopInfo info) {
+        CapturedTroops newCapturedTroops = new CapturedTroops();
+        newCapturedTroops.cloneCapturedTroops(this.troopsPlayerOne, this.troopsPlayerTwo);
+        newCapturedTroops.addTroopToList(side, info);
+        return newCapturedTroops;
     }
-    // TODO
-    cloneCapturedTroops(List<TroopInfo> troopsPlayer1, List<TroopInfo> troopsPlayer2){
-        this.troopsPlayer1 = troopsPlayer1.clone();
+    private void cloneCapturedTroops(List<TroopInfo> oldTroopsPlayerOne, List<TroopInfo> oldTroopsPlayerTwo) {
+        Collections.copy(this.troopsPlayerOne, oldTroopsPlayerOne);
+        Collections.copy(this.troopsPlayerTwo, oldTroopsPlayerTwo);
+    }
+
+    private void addTroopToList(PlayingSide side, TroopInfo info){
+        if(side == PlayingSide.ORANGE) troopsPlayerOne.add(info);
+            else troopsPlayerTwo.add(info);
     }
 }
