@@ -80,12 +80,19 @@ public class Board {
         newBoard.CapturedTroops().withTroop(side, info);
         return newBoard;
     }
-    // Lze z dané pozice vzíjt jednotku, nebo-li, stojí na dané pozici nějaká jednotka?
-    //public boolean canTakeFrom(TilePosition origin)
+    // Lze z dané pozice vzít jednotku, nebo-li, stojí na dané pozici nějaká jednotka?
+    public boolean canTakeFrom(TilePosition origin){
+        return tileAt(origin).hasTroop();
+    }
 
     // Lze na danou pozici postavit zadanou jednotku?
-    //public boolean canPlaceTo(Troop troop, TilePosition target)
-
+    public boolean canPlaceTo(Troop troop, TilePosition target){
+        //TODO
+        // metody canNecoNeco pravdepodobne pracuji se samotnymi pravidly hry, takze se budou asi
+        // implementovat az potom. 
+        return false;
+    }
+    // TODO
     // Může zadaná jednotka zajmout na pozici target soupeřovu jednotku?
     //public boolean canCaptureOn(Troop troop, TilePosition target) {
 
