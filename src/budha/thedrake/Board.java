@@ -74,8 +74,6 @@ public class Board {
             playingBoard[t.position().i][t.position().j] = t;
         }
     }
-
-    // TODO
     // ukladani board atribut
     public Board withCaptureAndTiles(TroopInfo info, PlayingSide side, Tile... tiles){
         Board newBoard = this.withTiles(tiles);
@@ -91,43 +89,55 @@ public class Board {
     // Může zadaná jednotka zajmout na pozici target soupeřovu jednotku?
     //public boolean canCaptureOn(Troop troop, TilePosition target) {
 
-/*
- * Může zadaná jednotka udělat krok z pozice origin na pozici target
- * bez toho, aby zajala soupeřovu jednotku?
- */
-       // public boolean canStepOnly(TilePosition origin, TilePosition target)
+    /*
+     * Může zadaná jednotka udělat krok z pozice origin na pozici target
+     * bez toho, aby zajala soupeřovu jednotku?
+     */
+    // public boolean canStepOnly(TilePosition origin, TilePosition target)
 
-/*
- * Může zadaná jednotka udělat krok z pozice origin na pozici target
- * s tím, že tak zajme soupeřovu jednotku?
- */
-        // public boolean canStepAndCapture(TilePosition origin, TilePosition target)
+    /*
+     * Může zadaná jednotka udělat krok z pozice origin na pozici target
+     * s tím, že tak zajme soupeřovu jednotku?
+     */
+    // public boolean canStepAndCapture(TilePosition origin, TilePosition target)
 
-/*
- * Nová hrací deska, ve které jednotka na pozici origin se přesunula
- * na pozici target bez toho, aby zajala soupeřovu jednotku.
- */
-        // public Board stepOnly(TilePosition origin, TilePosition target)
-
-/*
- * Nová hrací deska, ve které jednotka na pozici origin se přesunula
- * na pozici target, kde zajala soupeřovu jednotku.
- */
+    /*
+     * Nová hrací deska, ve které jednotka na pozici origin se přesunula
+     * na pozici target, kde zajala soupeřovu jednotku.
+    */
     public Board stepAndCapture(TilePosition origin, TilePosition target) {
         Troop attacker = tileAt(origin).troop();
         Troop targetTroop = tileAt(target).troop();
-
         return withCaptureAndTiles(
                 targetTroop.info(),
                 targetTroop.side(),
                 new EmptyTile(origin),
                 new TroopTile(target, attacker.flipped()));
     }
+    /*
+     * Nová hrací deska, ve které jednotka na pozici origin se přesunula
+     * na pozici target bez toho, aby zajala soupeřovu jednotku.
+     */
+    public Board stepOnly(TilePosition origin, TilePosition target){
+        Troop troop = tileAt(origin).troop();
 
-/*
- * Nová hrací deska, ve které jednotka zůstává stát na pozici origin
- * a zajme soupeřovu jednotku na pozici target.
- */
-    // public Board captureOnly(TilePosition origin, TilePosition target)
+        return withTiles(
+                new EmptyTile(origin),
+                new TroopTile(target, troop.flipped()));
+    }
+    /*
+     * Nová hrací deska, ve které jednotka zůstává stát na pozici origin
+     * a zajme soupeřovu jednotku na pozici target.
+     */
+    public Board captureOnly(TilePosition origin, TilePosition target){
+        Troop attacker = tileAt(origin).troop();
+        Troop targetTroop = tileAt(target).troop();
+
+        return withCaptureAndTiles(
+                targetTroop.info(),
+                targetTroop.side(),
+                new EmptyTile(target),
+                new TroopTile(origin, attacker.flipped()));
+    }
 
 }
