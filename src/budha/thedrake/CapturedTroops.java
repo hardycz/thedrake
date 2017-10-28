@@ -8,8 +8,7 @@ public class CapturedTroops {
     private List<TroopInfo> troopsPlayerOne;
     private List<TroopInfo> troopsPlayerTwo;
 
-    //TODO
-// Konstruktor vytvářející prázdné seznamy
+    // Konstruktor vytvářející prázdné seznamy
     public CapturedTroops() {
         troopsPlayerOne = new ArrayList<TroopInfo>();
         troopsPlayerTwo = new ArrayList<TroopInfo>();
