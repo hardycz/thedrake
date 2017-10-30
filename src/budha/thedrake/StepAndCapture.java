@@ -5,6 +5,9 @@ package budha.thedrake;
 //Volat ze tridy board
 
 public class StepAndCapture extends BoardChange{
+    public StepAndCapture(Board initialBoard, TilePosition origin, TilePosition target){
+        super(initialBoard,origin,target);
+    }
     @Override
     public Board resultBoard() {
         return null;

@@ -8,7 +8,7 @@ public class Board {
     private final int boardDimension;
     private CapturedTroops capturedTroops;
 
-    // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specefikovanými dlaždicemi.
+    // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specifikovanými dlaždicemi.
     // Všechny ostatní dlažice se berou jako prázdné.
     public Board(int dimension, Tile... tiles){
         this.playingBoard = new Tile[dimension][dimension];
@@ -30,7 +30,7 @@ public class Board {
     }
 
     // Getter pro zajate jednotky
-    public CapturedTroops CapturedTroops(){
+    public CapturedTroops captured(){
         return capturedTroops;
     }
     // Vrací dlaždici na zvolené pozici. Pokud je pozice mimo desku, vyhazuje IllegalArgumentException
@@ -77,36 +77,53 @@ public class Board {
     // ukladani board atribut
     public Board withCaptureAndTiles(TroopInfo info, PlayingSide side, Tile... tiles){
         Board newBoard = this.withTiles(tiles);
-        newBoard.CapturedTroops().withTroop(side, info);
+        newBoard.captured().withTroop(side, info);
         return newBoard;
+    }
+    public boolean isThereTroopTile(TilePosition tile){
+        try{
+            tileAt(tile).hasTroop();
+        } catch (Exception e){
+            return false;
+        }
+        return true;
     }
     // Lze z dané pozice vzít jednotku, nebo-li, stojí na dané pozici nějaká jednotka?
     public boolean canTakeFrom(TilePosition origin){
-        return tileAt(origin).hasTroop();
+        return isThereTroopTile(origin);
     }
 
     // Lze na danou pozici postavit zadanou jednotku?
     public boolean canPlaceTo(Troop troop, TilePosition target){
-        //TODO
-        // metody canNecoNeco pravdepodobne pracuji se samotnymi pravidly hry, takze se budou asi
-        // implementovat az potom. 
-        return false;
+        return !isThereTroopTile(target);
     }
     // TODO
     // Může zadaná jednotka zajmout na pozici target soupeřovu jednotku?
-    //public boolean canCaptureOn(Troop troop, TilePosition target) {
-
+    public boolean canCaptureOn(Troop troop, TilePosition target) {
+        return isThereTroopTile(target);
+    }
+    /*
+    * Stojí na políčku origin jednotka, která může zůstat na pozici origin
+    * a zajmout soupeřovu jednotku na pozici target?
+    */
+    public boolean canCaptureOnly(TilePosition origin, TilePosition target){
+        return (isThereTroopTile(origin) && isThereTroopTile(target));
+    }
     /*
      * Může zadaná jednotka udělat krok z pozice origin na pozici target
      * bez toho, aby zajala soupeřovu jednotku?
      */
-    // public boolean canStepOnly(TilePosition origin, TilePosition target)
+     public boolean canStepOnly(TilePosition origin, TilePosition target){
+         return (isThereTroopTile(origin) && !isThereTroopTile(target));
+     }
 
     /*
      * Může zadaná jednotka udělat krok z pozice origin na pozici target
      * s tím, že tak zajme soupeřovu jednotku?
      */
-    // public boolean canStepAndCapture(TilePosition origin, TilePosition target)
+     public boolean canStepAndCapture(TilePosition origin, TilePosition target){
+         return (isThereTroopTile(origin) && isThereTroopTile(target));
+     }
 
     /*
      * Nová hrací deska, ve které jednotka na pozici origin se přesunula
