@@ -77,7 +77,7 @@ public class Board {
     // ukladani board atribut
     public Board withCaptureAndTiles(TroopInfo info, PlayingSide side, Tile... tiles){
         Board newBoard = this.withTiles(tiles);
-        newBoard.captured().withTroop(side, info);
+        newBoard.capturedTroops = newBoard.captured().withTroop(side, info);
         return newBoard;
     }
     public boolean isThereTroopTile(TilePosition tile){
