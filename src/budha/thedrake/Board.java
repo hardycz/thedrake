@@ -97,7 +97,6 @@ public class Board {
     public boolean canPlaceTo(Troop troop, TilePosition target){
         return !isThereTroopTile(target);
     }
-    // TODO
     // Může zadaná jednotka zajmout na pozici target soupeřovu jednotku?
     public boolean canCaptureOn(Troop troop, TilePosition target) {
         return isThereTroopTile(target);

@@ -1,39 +1,42 @@
 package budha.thedrake;
 
+import java.util.List;
+
 /**
  * Created by havrda on 12/10/2017.
  */
 
 public class TroopInfo {
-    //TODO
-    //Do třídy TroopInfo přidejte dva atributy: frontActions a backActions. Upravte patřičně všechny konstruktory,
-    // abychom mohli každou jednotku vytvořit se seznamem jejích rubových i lícových akci.
+
     private final String name;
     private final Offset2D frontPivot;
     private final Offset2D backPivot;
+    private final List<TroopAction> frontActions;
+    private final List<TroopAction> backActions;
     // Konstruktor
-    public TroopInfo(String name, Offset2D frontPivot, Offset2D backPivot){
+    public TroopInfo(String name, Offset2D frontPivot, Offset2D backPivot, List<TroopAction> frontActions, List<TroopAction> backActions){
         this.name = name;
         this.frontPivot= frontPivot;
         this.backPivot = backPivot;
+        this.frontActions = frontActions;
+        this.backActions = backActions;
     }
     // Konstruktor, který nastaví lícový i rubový pivot na stejnou hodnotu
-public TroopInfo(String name, Offset2D pivot) {
+    public TroopInfo(String name, Offset2D pivot) {
     this(name, pivot, pivot);
 }
     // Konstruktor, který nastaví lícový i rubový pivot na hodnotu [1, 1]
-public TroopInfo(String name){
+    public TroopInfo(String name){
     this(name, new Offset2D(1,1));
 }
-//TODO
-//Přidejte do třídy metod, která vrací akce pro zadanou stranu jednotky.
-    //public List<TroopAction> actions(TroopFace face)
-
+    //Přidejte do třídy metod, která vrací akce pro zadanou stranu jednotky.
+    public List<TroopAction> actions(TroopFace face){
+        return (face == TroopFace.FRONT) ? frontActions:backActions;
+    }
     // Vrací jméno
     public String name(){
         return this.name;
     }
-
     // Vrací pivot na zadané straně jednotky
     public Offset2D pivot(TroopFace face){
         return (face == TroopFace.FRONT)?frontPivot:backPivot;
