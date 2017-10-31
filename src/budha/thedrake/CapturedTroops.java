@@ -1,9 +1,6 @@
 package budha.thedrake;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,7 +32,6 @@ public class CapturedTroops {
 
     // Vrací seznam zajatých jednotek pro daného hráče
     public List<TroopInfo> troops(PlayingSide side) {
-
         if(side == PlayingSide.BLUE){
             List<TroopInfo> unmodifiableList = Collections.unmodifiableList(capturedBlue);
             return unmodifiableList;
@@ -48,8 +44,6 @@ public class CapturedTroops {
 
     // Přidává nově zajatou jednotku na začátek seznamu zajatých jednotek daného hráče.
     public CapturedTroops withTroop(PlayingSide side, TroopInfo info){
-
         return new CapturedTroops(this, info, side);
-
     }
 }

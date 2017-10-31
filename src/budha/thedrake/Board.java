@@ -90,30 +90,30 @@ public class Board {
     }
     // Lze z dané pozice vzít jednotku, nebo-li, stojí na dané pozici nějaká jednotka?
     public boolean canTakeFrom(TilePosition origin){
-        return isThereTroopTile(origin);
+        return ((contains(origin) && tileAt(origin) instanceof TroopTile));
     }
 
     // Lze na danou pozici postavit zadanou jednotku?
     public boolean canPlaceTo(Troop troop, TilePosition target){
-        return !isThereTroopTile(target);
+        return ((contains(target) && tileAt(target) instanceof EmptyTile));
     }
     // Může zadaná jednotka zajmout na pozici target soupeřovu jednotku?
     public boolean canCaptureOn(Troop troop, TilePosition target) {
-        return isThereTroopTile(target);
+        return (contains(target) && (tileAt(target) instanceof TroopTile) && (tileAt(target).troop().side() != troop.side()));
     }
     /*
     * Stojí na políčku origin jednotka, která může zůstat na pozici origin
     * a zajmout soupeřovu jednotku na pozici target?
     */
     public boolean canCaptureOnly(TilePosition origin, TilePosition target){
-        return (isThereTroopTile(origin) && isThereTroopTile(target));
+        return (canTakeFrom(origin) && canCaptureOn(tileAt(origin).troop(), target));
     }
     /*
      * Může zadaná jednotka udělat krok z pozice origin na pozici target
      * bez toho, aby zajala soupeřovu jednotku?
      */
      public boolean canStepOnly(TilePosition origin, TilePosition target){
-         return (isThereTroopTile(origin) && !isThereTroopTile(target));
+         return (canTakeFrom(origin) && (contains(target) && tileAt(target) instanceof EmptyTile));
      }
 
     /*
@@ -121,7 +121,7 @@ public class Board {
      * s tím, že tak zajme soupeřovu jednotku?
      */
      public boolean canStepAndCapture(TilePosition origin, TilePosition target){
-         return (isThereTroopTile(origin) && isThereTroopTile(target));
+         return (canTakeFrom(origin) && canCaptureOn(tileAt(origin).troop(), target));
      }
 
     /*
