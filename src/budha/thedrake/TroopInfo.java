@@ -22,7 +22,7 @@ public class TroopInfo {
         this.backActions = backActions;
     }
     // Konstruktor, který nastaví lícový i rubový pivot na stejnou hodnotu
-    public TroopInfo(String name, Offset2D pivot, List<TroopAction> frontActions, List<TroopAction> backActions>) {
+    public TroopInfo(String name, Offset2D pivot, List<TroopAction> frontActions, List<TroopAction> backActions) {
     this(name, pivot, pivot, frontActions, backActions);
 }
     // Konstruktor, který nastaví lícový i rubový pivot na hodnotu [1, 1]

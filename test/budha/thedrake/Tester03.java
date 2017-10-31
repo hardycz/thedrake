@@ -149,7 +149,7 @@ public class Tester03 {
 	
 	@Test
 	public void changesTest() {
-		/*
+
 		StandardDrakeSetup setup = new StandardDrakeSetup();
 		Troop blueDrake = new Troop(setup.DRAKE, PlayingSide.BLUE, TroopFace.FRONT);
 		Troop orangeDrake = new Troop(setup.DRAKE, PlayingSide.ORANGE, TroopFace.FRONT);
@@ -184,12 +184,12 @@ public class Tester03 {
 		assertSame(setup.DRAKE, b3.tileAt(new TilePosition("b1")).troop().info());
 		assertEquals(
 				Collections.singletonList(setup.DRAKE), 
-				b3.captured().troops(PlayingSide.ORANGE));*/
+				b3.captured().troops(PlayingSide.ORANGE));
 	}
 	
 	@Test
 	public void strikeActionTest() {
-		/*StandardDrakeSetup setup = new StandardDrakeSetup();
+		StandardDrakeSetup setup = new StandardDrakeSetup();
 		Troop blueSpearman = new Troop(setup.SPEARMAN, PlayingSide.BLUE, TroopFace.FRONT);
 		Troop orangeDrake = new Troop(setup.DRAKE, PlayingSide.ORANGE, TroopFace.FRONT);
 		Troop orangeSpearman = new Troop(setup.SPEARMAN, PlayingSide.ORANGE, TroopFace.FRONT);
@@ -229,7 +229,7 @@ public class Tester03 {
 		assertSame('c', ch2.origin().column());
 		assertSame(3, ch2.origin().row());
 		assertSame('b', ch2.target().column());
-		assertSame(2, ch2.target().row());		*/
+		assertSame(2, ch2.target().row());
 	}
 }
 
