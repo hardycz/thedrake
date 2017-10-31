@@ -1,5 +1,7 @@
 package budha.thedrake;
 
+import java.util.List;
+
 /**
  * Created by havrda on 12/10/2017.
  */
@@ -15,6 +17,10 @@ public class Troop {
         this.side = side;
         this.face = face;
     }
+    // TODO
+    // Vytvoří jednotku lícem nahoru
+    public Troop(TroopInfo info, PlayingSide side)
+
     // Info o jednotce
     public TroopInfo info(){
         return info;
@@ -35,4 +41,7 @@ public class Troop {
     public Troop flipped(){
         return new Troop(info, side, (face==TroopFace.BACK)?TroopFace.FRONT:TroopFace.BACK);
     }
+    //TODO
+    // Všechny změny desky, které může jednotka provést na desce board, pokud stojí na pozici pos.
+    public List<BoardChange> changesFrom(TilePosition pos, Board board);
 }

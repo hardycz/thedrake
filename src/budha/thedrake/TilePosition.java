@@ -1,5 +1,9 @@
 package budha.thedrake;
 
+//TODO
+/* Do třídy TilePosition přidejte implementace metod hashCode() a equals().
+   Nechte si je vegenerovat, ale metodu equals() upravte tak, aby používala equalsTo().
+*/
 public class TilePosition {
 	public final int i;
 	public final int j;

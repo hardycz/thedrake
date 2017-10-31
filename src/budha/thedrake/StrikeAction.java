@@ -3,11 +3,6 @@ package budha.thedrake;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO
-/*
-inspirovat se SlideAction a ShiftAction
- */
-
 public class StrikeAction implements TroopAction {
     private Offset2D direction;
 
