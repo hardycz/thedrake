@@ -1,5 +1,7 @@
 package budha.thedrake;
 
+import java.util.List;
+
 public class CaptureOnly extends BoardChange{
 
     public CaptureOnly(Board initialBoard, TilePosition origin, TilePosition target){

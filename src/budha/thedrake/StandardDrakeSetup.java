@@ -12,11 +12,11 @@ public class StandardDrakeSetup implements TheDrakeSetup {
         mapující jména jednotek na jejich info a pomocí ní implementujte metodu infoByName().
         Pokud infoByName dostane řetězěc, který není platným názvem jednotky, vyhodí výjimku IllegalArgumentException.
      */
-
     @Override
     public TroopInfo infoByName(String name) {
-
-        throw new IllegalArgumentException();
+        TroopInfo troop = hashMap.get(name);
+        if(troop == null) throw new IllegalArgumentException();
+        return troop;
     }
 
     @Override
@@ -24,17 +24,19 @@ public class StandardDrakeSetup implements TheDrakeSetup {
         return Arrays.asList(DRAKE, CLUBMAN, MONK, SPEARMAN, SWORDSMAN, ARCHER);
     }
 
-    public final HashMap<String,TroopInfo> hashMap;
-    // TODO
-    //static
-        //{
-        //    hashMap = new HashMap<String, String>();
-        //    hashMap.put("a", "b");
-        //    hashMap.put("c", "d");
-        //}
+    public final HashMap<String,TroopInfo> hashMap = createMap();
+
+    public HashMap createMap(){
+        HashMap<String,TroopInfo> hashMap = new HashMap<>();
+        for(TroopInfo troop: troops()){
+                String test = troop.name();
+                hashMap.put(troop.name(),troop);
+            }
+        return hashMap;
+    }
 
 
-    public final TroopInfo DRAKE = new TroopInfo(
+    public static final TroopInfo DRAKE = new TroopInfo(
             "Drake",
             Arrays.asList(
                     new SlideAction(1, 0),
@@ -43,7 +45,7 @@ public class StandardDrakeSetup implements TheDrakeSetup {
                     new SlideAction(0, 1),
                     new SlideAction(0, -1)));
 
-    public final TroopInfo CLUBMAN = new TroopInfo(
+    public static final TroopInfo CLUBMAN = new TroopInfo(
             "Clubman",
             Arrays.asList(
                     new ShiftAction(1, 0),
@@ -56,7 +58,7 @@ public class StandardDrakeSetup implements TheDrakeSetup {
                     new ShiftAction(1, -1),
                     new ShiftAction(-1, -1)));
 
-    public final TroopInfo MONK = new TroopInfo(
+    public static final TroopInfo MONK = new TroopInfo(
             "Monk",
             Arrays.asList(
                     new SlideAction(1, 1),
@@ -69,7 +71,7 @@ public class StandardDrakeSetup implements TheDrakeSetup {
                     new ShiftAction(-1, 0),
                     new ShiftAction(0, -1)));
 
-    public final TroopInfo SPEARMAN = new TroopInfo(
+    public static final TroopInfo SPEARMAN = new TroopInfo(
             "Spearman",
             Arrays.asList(
                     new ShiftAction(0, 1),
@@ -80,7 +82,7 @@ public class StandardDrakeSetup implements TheDrakeSetup {
                     new ShiftAction(-1, 1),
                     new ShiftAction(0, -1)));
 
-    public final TroopInfo SWORDSMAN = new TroopInfo(
+    public static final TroopInfo SWORDSMAN = new TroopInfo(
             "Swordsman",
             Arrays.asList(
                     new StrikeAction(1, 0),
@@ -93,7 +95,7 @@ public class StandardDrakeSetup implements TheDrakeSetup {
                     new ShiftAction(-1, 0),
                     new ShiftAction(0, -1)));
 
-    public final TroopInfo ARCHER = new TroopInfo(
+    public static final TroopInfo ARCHER = new TroopInfo(
             "Archer",
             new Offset2D(1, 1),
             new Offset2D(1, 0),

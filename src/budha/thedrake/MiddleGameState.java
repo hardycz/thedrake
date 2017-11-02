@@ -29,18 +29,21 @@ public class MiddleGameState extends BaseGameState {
     public List<Move> allMoves() {
         //TODO
         // Zde doplňte vlastní implementaci
+        return null;
     }
 
     @Override
     public List<Move> boardMoves(TilePosition position) {
         //TODO
         // Zde doplňte vlastní implementaci
+        return null;
     }
 
     @Override
     public List<Move> stackMoves() {
         //TODO
         // Zde doplňte vlastní implementaci
+        return null;
     }
 
     @Override
@@ -51,6 +54,7 @@ public class MiddleGameState extends BaseGameState {
     public boolean canPlaceFromStack(TilePosition target) {
         //TODO
         // Zde doplňte vlastní implementaci
+        return true;
     }
 
     public MiddleGameState placeFromStack(TilePosition target) {

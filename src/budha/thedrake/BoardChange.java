@@ -1,9 +1,9 @@
 package budha.thedrake;
 
 public abstract class BoardChange {
-    private final Board initialBoard;
-    private final TilePosition origin;
-    private final TilePosition target;
+    protected final Board initialBoard;
+    protected final TilePosition origin;
+    protected final TilePosition target;
 
     protected BoardChange(Board initialBoard, TilePosition origin, TilePosition target) {
         this.initialBoard = initialBoard;

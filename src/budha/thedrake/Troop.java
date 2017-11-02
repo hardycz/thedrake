@@ -46,5 +46,7 @@ public class Troop {
     }
     //TODO
     // Všechny změny desky, které může jednotka provést na desce board, pokud stojí na pozici pos.
-    public List<BoardChange> changesFrom(TilePosition pos, Board board);
+    public List<BoardChange> changesFrom(TilePosition pos, Board board){
+        return null;
+    };
 }
