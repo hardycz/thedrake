@@ -17,9 +17,12 @@ public class Troop {
         this.side = side;
         this.face = face;
     }
-    // TODO
     // Vytvoří jednotku lícem nahoru
-    public Troop(TroopInfo info, PlayingSide side)
+    public Troop(TroopInfo info, PlayingSide side){
+        this.info = info;
+        this.side = side;
+        this.face = TroopFace.FRONT;
+    }
 
     // Info o jednotce
     public TroopInfo info(){

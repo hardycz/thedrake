@@ -7,20 +7,29 @@ public class Board {
     private final Tile playingBoard[][];
     private final int boardDimension;
     private CapturedTroops capturedTroops;
-    //TODO
     // Primární konstruktor
-    /*
-        Přidejte do třídy Board následující primární konstruktor.
-        Bude se nám hodit při načítání hracího plánu ze souboru v příštím úkolu.
-     */
     public Board(int dimension, CapturedTroops captured, Tile... tiles){
-
+        this(dimension, tiles);
+        capturedTroops = captured;
     }
     //TODO
     /*
         Nechť dále vaše třída Board implementuje rozhraní Iterable<Tile>,
         abychom mohli procházet dlaždice pomocí cyklu for each. Dlaždice se procházejí zleva doprava počínaje pozicí 'a1'.
-     */
+
+        Takovyhle format
+        return new Iterator<Tile>(){
+            @Override
+            public boolean hasNext(){
+            }
+
+            @Override
+            public Product next() {
+
+            }
+        }
+        }
+        */
 
     // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specifikovanými dlaždicemi.
     // Všechny ostatní dlažice se berou jako prázdné.
