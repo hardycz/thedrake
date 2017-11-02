@@ -65,9 +65,6 @@ public class Tester04 {
             fail();
         } catch(IllegalArgumentException e) {};
     }
-
-
-
     @Test
     public void boardTest() {
         Board board = createTestBoard();
@@ -95,7 +92,7 @@ public class Tester04 {
                 new TilePosition("c4"),
                 new TilePosition("d4")));
     }
-
+/*
     @Test
     public void middleGameStateTest() {
         Board board = createTestBoard();
@@ -144,5 +141,5 @@ public class Tester04 {
         assertFalse(state.canPlaceFromStack(new TilePosition("d3")));
         assertFalse(state.canPlaceFromStack(new TilePosition("d4")));
         assertFalse(state.canPlaceFromStack(new TilePosition("e1")));
-    }
+    }*/
 }
