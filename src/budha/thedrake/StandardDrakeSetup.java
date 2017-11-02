@@ -1,7 +1,9 @@
 package budha.thedrake;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+
 
 public class StandardDrakeSetup implements TheDrakeSetup {
     //TODO
@@ -12,9 +14,25 @@ public class StandardDrakeSetup implements TheDrakeSetup {
      */
 
     @Override
+    public TroopInfo infoByName(String name) {
+
+        throw new IllegalArgumentException();
+    }
+
+    @Override
     public List<TroopInfo> troops() {
         return Arrays.asList(DRAKE, CLUBMAN, MONK, SPEARMAN, SWORDSMAN, ARCHER);
     }
+
+    public final HashMap<String,TroopInfo> hashMap;
+    // TODO
+    //static
+        //{
+        //    hashMap = new HashMap<String, String>();
+        //    hashMap.put("a", "b");
+        //    hashMap.put("c", "d");
+        //}
+
 
     public final TroopInfo DRAKE = new TroopInfo(
             "Drake",
