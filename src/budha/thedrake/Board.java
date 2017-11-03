@@ -1,9 +1,11 @@
 package budha.thedrake;
 
+import java.util.Iterator;
+
 /**
  * Created by havrda on 16/10/2017.
  */
-public class Board {
+public class Board implements Iterable<Tile>{
     private final Tile playingBoard[][];
     private final int boardDimension;
     private CapturedTroops capturedTroops;
@@ -17,19 +19,38 @@ public class Board {
         Nechť dále vaše třída Board implementuje rozhraní Iterable<Tile>,
         abychom mohli procházet dlaždice pomocí cyklu for each. Dlaždice se procházejí zleva doprava počínaje pozicí 'a1'.
 
-        Takovyhle format
-        return new Iterator<Tile>(){
-            @Override
-            public boolean hasNext(){
-            }
-
-            @Override
-            public Product next() {
-
-            }
-        }
-        }
         */
+    @Override
+    public Iterator<Tile> iterator() {
+        return new Iterator<Tile>(){
+            private int indexX = 0;
+            private int indexY = 0;
+            @Override
+            public boolean hasNext() {
+                return indexX < dimension() && indexY < dimension() && playingBoard[indexX][indexY] != null;
+            }
+
+            @Override
+            public Tile next() {
+                Tile tile = tileAt(new TilePosition(indexX++,indexY));
+                if(indexX >= dimension()) {
+                    indexY++;
+                    indexX = 0;
+                }/*
+                Tile tile = tileAt(new TilePosition(indexX,indexY++));
+                if(indexY >= dimension()) {
+                    indexX++;
+                    indexY = 0;
+                }*/
+                return tile;
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
+    }
 
     // Konstruktor. Vytvoří čtvercovou hrací desku zadaného rozměru se specifikovanými dlaždicemi.
     // Všechny ostatní dlažice se berou jako prázdné.
