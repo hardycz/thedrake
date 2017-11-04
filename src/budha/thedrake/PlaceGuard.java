@@ -1,8 +1,5 @@
 package budha.thedrake;
 
-//TODO
-//prohlednout implementaci
-
 public class PlaceGuard extends Move {
 
     public PlaceGuard(PlacingGuardsGameState initialState, TilePosition target) {

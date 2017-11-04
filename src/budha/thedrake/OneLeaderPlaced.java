@@ -1,8 +1,5 @@
 package budha.thedrake;
 
-//TODO
-//Prohlednout implementaci
-
 public class OneLeaderPlaced implements Leaders {
 
     private final PlayingSide side;

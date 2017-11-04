@@ -1,8 +1,5 @@
 package budha.thedrake;
 
-//TODO
-//prohlednout implementaci
-
 public class PlaceFromStack extends Move {
 
     public PlaceFromStack(MiddleGameState initialState, TilePosition target) {

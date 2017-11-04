@@ -1,8 +1,5 @@
 package budha.thedrake;
 
-//TODO
-//Prohlednout implementaci
-
 public class BothLeadersPlaced implements Leaders {
 
     private final TilePosition blueLeaderPosition;

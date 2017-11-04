@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//TODO
-//Prohlednout implementaci
-
 public class PlacingGuardsGameState extends BaseGameState {
     private final int guardsCount;
 

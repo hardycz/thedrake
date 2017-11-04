@@ -14,6 +14,7 @@ public class Board implements Iterable<Tile>{
         this(dimension, tiles);
         capturedTroops = captured;
     }
+
     //TODO
     /*
         Nechť dále vaše třída Board implementuje rozhraní Iterable<Tile>,
@@ -206,5 +207,4 @@ public class Board implements Iterable<Tile>{
                 new EmptyTile(target),
                 new TroopTile(origin, attacker.flipped()));
     }
-
 }

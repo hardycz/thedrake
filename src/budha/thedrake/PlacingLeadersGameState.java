@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//TODO
-//prohlednout implementaci
-
 public class PlacingLeadersGameState extends BaseGameState {
 
     public PlacingLeadersGameState(TroopStacks troopStacks, Tile... tiles) {

@@ -1,8 +1,5 @@
 package budha.thedrake;
 
-//TODO
-//Prohlednout implementaci
-
 public abstract class Move {
     private final GameState initialState;
     private final TilePosition target;

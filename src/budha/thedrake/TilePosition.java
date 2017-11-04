@@ -1,9 +1,5 @@
 package budha.thedrake;
 
-//TODO
-/* Do třídy TilePosition přidejte implementace metod hashCode() a equals().
-   Nechte si je vegenerovat, ale metodu equals() upravte tak, aby používala equalsTo().
-*/
 public class TilePosition {
 	public final int i;
 	public final int j;
@@ -18,7 +14,33 @@ public class TilePosition {
 		this.j = jFromRow(row);
 	}
 
-	public TilePosition(String pos) {
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj){
+        	return true;
+		}
+		if(obj == null){
+            return false;
+        }
+        TilePosition other = (TilePosition) obj;
+		if(!(other.i == i)){
+		    return false;
+        }
+        if(!(other.j == j)){
+		    return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = i;
+        result = 31 * result + j;
+        return result;
+    }
+
+    public TilePosition(String pos) {
 		this(pos.charAt(0), Integer.parseInt(pos.substring(1)));
 	}
 

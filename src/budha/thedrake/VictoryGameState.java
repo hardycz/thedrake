@@ -3,9 +3,6 @@ package budha.thedrake;
 import java.util.Collections;
 import java.util.List;
 
-//TODO
-//Prohlednout implementaci
-
 public class VictoryGameState extends BaseGameState {
 
     public VictoryGameState(

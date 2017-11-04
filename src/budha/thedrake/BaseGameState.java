@@ -1,8 +1,5 @@
 package budha.thedrake;
 
-//TODO
-//Precist implementaci
-
 public abstract class BaseGameState implements GameState {
     private final Board board;
     private final TroopStacks troopStacks;

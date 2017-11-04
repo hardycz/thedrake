@@ -5,9 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-//TODO
-//prohlednout implementaci
-
 public class BasicTroopStacks implements TroopStacks {
     private final List<TroopInfo> blueTroops;
     private final List<TroopInfo> orangeTroops;

@@ -1,8 +1,5 @@
 package budha.thedrake;
 
-//TODO
-//prohlednut implementaci
-
 public class NoLeadersPlaced implements Leaders {
 
     @Override
