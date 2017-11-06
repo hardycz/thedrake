@@ -79,12 +79,11 @@ public class PlacingGuardsGameState extends BaseGameState {
     public List<Move> stackMoves() {
         List<Move> result = new ArrayList<>();
         Troop troop = troopStacks().peek(sideOnTurn());
-        // TODO
-        //for(Tile tile : board()) {
-        //    if(canPlaceGuard(troop, tile.position())) {
-        //        result.add(new PlaceGuard(this, tile.position()));
-        //    }
-        //}
+        for(Tile tile : board()) {
+            if(canPlaceGuard(troop, tile.position())) {
+                result.add(new PlaceGuard(this, tile.position()));
+            }
+        }
         return result;
     }
 

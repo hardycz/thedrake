@@ -15,12 +15,6 @@ public class Board implements Iterable<Tile>{
         capturedTroops = captured;
     }
 
-    //TODO
-    /*
-        Nechť dále vaše třída Board implementuje rozhraní Iterable<Tile>,
-        abychom mohli procházet dlaždice pomocí cyklu for each. Dlaždice se procházejí zleva doprava počínaje pozicí 'a1'.
-
-        */
     @Override
     public Iterator<Tile> iterator() {
         return new Iterator<Tile>(){

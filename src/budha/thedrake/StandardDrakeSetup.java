@@ -6,12 +6,7 @@ import java.util.List;
 
 
 public class StandardDrakeSetup implements TheDrakeSetup {
-    //TODO
-    /*
-        Do třídy StandardDrakeSetup přidejte hash mapu
-        mapující jména jednotek na jejich info a pomocí ní implementujte metodu infoByName().
-        Pokud infoByName dostane řetězěc, který není platným názvem jednotky, vyhodí výjimku IllegalArgumentException.
-     */
+
     @Override
     public TroopInfo infoByName(String name) {
         TroopInfo troop = hashMap.get(name);
@@ -29,7 +24,6 @@ public class StandardDrakeSetup implements TheDrakeSetup {
     public HashMap createMap(){
         HashMap<String,TroopInfo> hashMap = new HashMap<>();
         for(TroopInfo troop: troops()){
-                String test = troop.name();
                 hashMap.put(troop.name(),troop);
             }
         return hashMap;

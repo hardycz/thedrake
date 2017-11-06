@@ -2,22 +2,15 @@ package budha.thedrake;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class MiddleGameState extends BaseGameState {
 
-    public MiddleGameState(
-            Board board,
-            TroopStacks troopStacks,
-            BothLeadersPlaced leaders,
-            PlayingSide sideOnTurn) {
-        super(
-                board,
-                troopStacks,
-                leaders,
-                sideOnTurn);
+    public MiddleGameState( Board board,
+                            TroopStacks troopStacks,
+                            BothLeadersPlaced leaders,
+                            PlayingSide sideOnTurn){
+        super(board, troopStacks, leaders, sideOnTurn);
     }
 
     @Override
@@ -90,26 +83,28 @@ public class MiddleGameState extends BaseGameState {
             return false;
         }
 
-        //TODO
+        if(troop.side() != sideOnTurn()){
+            return false;
+        }
 
-            /*
-            boolean hasLeaderAsNeigbour = false;
-            hasLeaderAsNeigbour |= tryNeighbour(target, 0, 1);
-            hasLeaderAsNeigbour |= tryNeighbour(target, 0, -1);
-            hasLeaderAsNeigbour |= tryNeighbour(target, 1, 0);
-            hasLeaderAsNeigbour |= tryNeighbour(target, -1, 0);
+        boolean hasLeaderAsNeigbour = false;
+        hasLeaderAsNeigbour |= tryNeighbour(target, 0, 1);
+        hasLeaderAsNeigbour |= tryNeighbour(target, 0, -1);
+        hasLeaderAsNeigbour |= tryNeighbour(target, 1, 0);
+        hasLeaderAsNeigbour |= tryNeighbour(target, -1, 0);
 
-            return hasLeaderAsNeigbour;
-            */
+        return hasLeaderAsNeigbour;
     }
 
     public MiddleGameState placeFromStack(TilePosition target) {
         Troop troop = troopStacks().peek(sideOnTurn());
-        return new MiddleGameState(
-                board().withTiles(
-                        new TroopTile(target, troop)),
-                troopStacks().pop(sideOnTurn()),
-                leaders(),
-                sideOnTurn().opposite());
+        return new MiddleGameState( board().withTiles(
+                                    new TroopTile(target, troop)),
+                                    troopStacks().pop(sideOnTurn()),
+                                    leaders(),
+                                    sideOnTurn().opposite());
+    }
+    private boolean tryNeighbour(TilePosition origin, int xStep, int yStep) {
+        return origin.step(xStep, yStep).equals(leaders().position(sideOnTurn()));
     }
 }
