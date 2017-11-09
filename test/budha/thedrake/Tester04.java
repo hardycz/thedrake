@@ -1,4 +1,4 @@
-package budha.thedrake;
+package test;
 
 
 import static org.junit.Assert.assertEquals;
@@ -39,7 +39,7 @@ public class Tester04 {
 	private Board createTestBoard() {
 		StandardDrakeSetup setup = new StandardDrakeSetup();
 		Board board = new Board(
-				4, 
+				4,
 				new CapturedTroops(),
 				new TroopTile(new TilePosition("a1"), new Troop(setup.MONK, PlayingSide.BLUE)),
 				new TroopTile(new TilePosition("b1"), new Troop(setup.DRAKE, PlayingSide.BLUE)),
@@ -50,7 +50,7 @@ public class Tester04 {
 				new TroopTile(new TilePosition("c3"), new Troop(setup.SWORDSMAN, PlayingSide.ORANGE)));
 		return board;
 	}
-	
+
 	@Test
 	public void standardSetupTest() {
 		StandardDrakeSetup setup = new StandardDrakeSetup();
@@ -60,26 +60,26 @@ public class Tester04 {
 		assertSame(setup.SPEARMAN, setup.infoByName("Spearman"));
 		assertSame(setup.SWORDSMAN, setup.infoByName("Swordsman"));
 		assertSame(setup.ARCHER, setup.infoByName("Archer"));
-		
-		try{ 
-			setup.infoByName("Martin"); 
-			fail(); 
+
+		try{
+			setup.infoByName("Martin");
+			fail();
 		} catch(IllegalArgumentException e) {};
 	}
 
-	
-	
+
+
 	@Test
 	public void boardTest() {
 		Board board = createTestBoard();
 		List<TilePosition> poss = new ArrayList<>();
-		
+
 		for(Tile tile : board) {
 			poss.add(tile.position());
 		}
-		
+
 		assertEquals(poss, Arrays.asList(
-				new TilePosition("a1"), 
+				new TilePosition("a1"),
 				new TilePosition("b1"),
 				new TilePosition("c1"),
 				new TilePosition("d1"),
@@ -96,17 +96,17 @@ public class Tester04 {
 				new TilePosition("c4"),
 				new TilePosition("d4")));
 	}
-	/*
+
 	@Test
 	public void middleGameStateTest() {
 		Board board = createTestBoard();
 		StandardDrakeSetup setup = new StandardDrakeSetup();
 		MiddleGameState state = new MiddleGameState(
-				board, 
-					new BasicTroopStacks(setup.CLUBMAN), 
-					new BothLeadersPlaced(new TilePosition("b1"), new TilePosition("b4")), 
-					PlayingSide.BLUE);
-		
+				board,
+				new BasicTroopStacks(setup.CLUBMAN),
+				new BothLeadersPlaced(new TilePosition("b1"), new TilePosition("b4")),
+				PlayingSide.BLUE);
+
 		Set<Move> actualFromStack = new HashSet<Move>(state.stackMoves());
 		Set<Move> expectedFromStack = new HashSet<Move>();
 		expectedFromStack.add(new PlaceFromStack(state, new TilePosition("c1")));
@@ -114,7 +114,7 @@ public class Tester04 {
 		expectedFromStack.add(new PlaceFromStack(state, new TilePosition("a3")));
 		expectedFromStack.add(new PlaceFromStack(state, new TilePosition("d2")));
 		assertEquals(expectedFromStack, actualFromStack);
-		
+
 		Set<Move> actualAll = new HashSet<Move>(state.allMoves());
 		Set<Move> expectedAll = new HashSet<Move>(expectedFromStack);
 		expectedAll.add(new BoardMove(state, new StepOnly(state.board(), new TilePosition("a1"), new TilePosition("b2"))));
@@ -129,17 +129,16 @@ public class Tester04 {
 		expectedAll.add(new BoardMove(state, new StepAndCapture(state.board(), new TilePosition("c2"), new TilePosition("c3"))));
 
 		assertEquals(expectedAll, actualAll);
-		
+
 		assertTrue(state.canPlaceFromStack(new TilePosition("c1")));
 		assertTrue(state.canPlaceFromStack(new TilePosition("b2")));
 		assertTrue(state.canPlaceFromStack(new TilePosition("a3")));
 		assertTrue(state.canPlaceFromStack(new TilePosition("d2")));
-		
+
 		assertFalse(state.canPlaceFromStack(new TilePosition("a1")));
 		assertFalse(state.canPlaceFromStack(new TilePosition("c4")));
 		assertFalse(state.canPlaceFromStack(new TilePosition("d3")));
 		assertFalse(state.canPlaceFromStack(new TilePosition("d4")));
 		assertFalse(state.canPlaceFromStack(new TilePosition("e1")));
-	}*/
+	}
 }
-

@@ -103,7 +103,7 @@ public class MiddleGameState extends BaseGameState {
     private boolean tryNeighbour(TilePosition origin, int xStep, int yStep) {
         TilePosition tmp = origin.step(xStep, yStep);
         if(board().contains(tmp)){
-            return board().tileAt(tmp).hasTroop();
+            return board().tileAt(tmp).hasTroop() && (board().tileAt(tmp).troop().side() == sideOnTurn());
 
         }
         return false;
