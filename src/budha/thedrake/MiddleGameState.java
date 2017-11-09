@@ -24,23 +24,23 @@ public class MiddleGameState extends BaseGameState {
         for(Tile tile : board()) {
             result.addAll(boardMoves(tile.position()));
         }
+        result.addAll(stackMoves());
         return result;
     }
 
     @Override
     public List<Move> boardMoves(TilePosition position) {
-        List<Move> result = new ArrayList<>();
-        PlayingSide side = sideOnTurn();
-        Tile tile = board().tileAt(position);
         Troop troop;
-        List<TroopAction> actions;
         List<BoardChange> boardChanges;
+        List<TroopAction> actions;
+        List<Move> tmp = new ArrayList<>();
+        Tile tile = board().tileAt(position);
 
         if(!tile.hasTroop()) {
             return Collections.emptyList();
         } else {
             troop = tile.troop();
-            if(troop.side() != side) {
+            if(troop.side() != sideOnTurn()) {
                 return Collections.emptyList();
             }
         }
@@ -49,12 +49,14 @@ public class MiddleGameState extends BaseGameState {
         boardChanges = new ArrayList<>();
 
         for(TroopAction action : actions) {
-            boardChanges = action.changesFrom(position, side, board());
+            boardChanges = action.changesFrom(position, sideOnTurn(), board());
             for(BoardChange change : boardChanges){
-                result.add(new BoardMove(this, change));
+                tmp.add(new BoardMove(this, change));
             }
         }
-        return result;
+
+
+        return tmp;
     }
 
     @Override
