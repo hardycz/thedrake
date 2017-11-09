@@ -60,12 +60,8 @@ public class MiddleGameState extends BaseGameState {
     @Override
     public List<Move> stackMoves() {
         List<Move> result = new ArrayList<>();
-        PlayingSide side = sideOnTurn();
-        Board board = board();
-        Troop troop = troopStacks().peek(sideOnTurn());
-
-        for(Tile target : board) {
-            if(!target.hasTroop()) {
+        for(Tile target : board()) {
+            if(canPlaceFromStack(target.position())) {
                 result.add(new PlaceFromStack(this, target.position()));
             }
         }
@@ -105,6 +101,11 @@ public class MiddleGameState extends BaseGameState {
                                     sideOnTurn().opposite());
     }
     private boolean tryNeighbour(TilePosition origin, int xStep, int yStep) {
-        return origin.step(xStep, yStep).equals(leaders().position(sideOnTurn()));
+        TilePosition tmp = origin.step(xStep, yStep);
+        if(board().contains(tmp)){
+            return board().tileAt(tmp).hasTroop();
+
+        }
+        return false;
     }
 }

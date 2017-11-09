@@ -31,12 +31,7 @@ public class Board implements Iterable<Tile>{
                 if(indexX >= dimension()) {
                     indexY++;
                     indexX = 0;
-                }/*
-                Tile tile = tileAt(new TilePosition(indexX,indexY++));
-                if(indexY >= dimension()) {
-                    indexX++;
-                    indexY = 0;
-                }*/
+                }
                 return tile;
             }
 
