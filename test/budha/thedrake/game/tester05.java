@@ -1,4 +1,4 @@
-package test;
+package budha.thedrake.game;
 
 import static org.junit.Assert.assertEquals;
 
