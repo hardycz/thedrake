@@ -1,5 +1,7 @@
 package budha.thedrake.game;
 
+import budha.thedrake.media.GameStateMedia;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -94,5 +96,9 @@ public class PlacingGuardsGameState extends BaseGameState {
 
     private boolean tryNeighbour(TilePosition origin, int xStep, int yStep) {
         return origin.step(xStep, yStep).equals(leaders().position(sideOnTurn()));
+    }
+    @Override
+    public <T> T putToMedia(GameStateMedia<T> media) {
+        return media.putPlacingGuardsGameState(this);
     }
 }

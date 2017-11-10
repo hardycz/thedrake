@@ -1,5 +1,7 @@
 package budha.thedrake.game;
 
+import budha.thedrake.media.TroopStacksMedia;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,14 +20,12 @@ public class BasicTroopStacks implements TroopStacks {
         blueTroops = Arrays.asList(troops);
         orangeTroops = Arrays.asList(troops);
     }
-
     @Override
     public List<TroopInfo> troops(PlayingSide side) {
         return side == PlayingSide.BLUE ?
                 Collections.unmodifiableList(blueTroops) :
                 Collections.unmodifiableList(orangeTroops);
     }
-
     @Override
     public BasicTroopStacks pop(PlayingSide side) {
         if(side == PlayingSide.BLUE) {
@@ -34,9 +34,13 @@ public class BasicTroopStacks implements TroopStacks {
 
         return new BasicTroopStacks(blueTroops, orangeTroops.subList(1, orangeTroops.size()));
     }
-
+    @Override
     public Troop peek(PlayingSide side) {
         TroopInfo info = side == PlayingSide.BLUE ? blueTroops.get(0) : orangeTroops.get(0);
         return new Troop(info, side);
+    }
+    @Override
+    public <T> T putToMedia(TroopStacksMedia<T> media) {
+        return media.putBasicTroopStacks(this);
     }
 }

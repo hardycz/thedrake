@@ -1,5 +1,7 @@
 package budha.thedrake.game;
 
+import budha.thedrake.media.BoardMedia;
+
 import java.util.Iterator;
 
 /**
@@ -195,5 +197,8 @@ public class Board implements Iterable<Tile>{
                 targetTroop.side(),
                 new EmptyTile(target),
                 new TroopTile(origin, attacker.flipped()));
+    }
+    public <T> T putToMedia(BoardMedia<T> media) {
+        return media.putBoard(this);
     }
 }

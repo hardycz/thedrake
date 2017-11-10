@@ -1,5 +1,7 @@
 package budha.thedrake.game;
 
+import budha.thedrake.media.CapturedTroopsMedia;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,5 +37,8 @@ public class CapturedTroops {
     // Přidává nově zajatou jednotku na začátek seznamu zajatých jednotek daného hráče.
     public CapturedTroops withTroop(PlayingSide side, TroopInfo info) {
         return new CapturedTroops(capturedOrange,capturedBlue,side,info);
+    }
+    public <T> T putToMedia(CapturedTroopsMedia<T> media) {
+        return media.putCapturedTroops(this);
     }
 }

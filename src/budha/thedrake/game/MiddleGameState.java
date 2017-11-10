@@ -1,5 +1,7 @@
 package budha.thedrake.game;
 
+import budha.thedrake.media.GameStateMedia;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -109,5 +111,9 @@ public class MiddleGameState extends BaseGameState {
 
         }
         return false;
+    }
+    @Override
+    public <T> T putToMedia(GameStateMedia<T> media) {
+        return media.putMiddleGameState(this);
     }
 }
