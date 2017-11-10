@@ -1,5 +1,7 @@
 package budha.thedrake.game;
 
+import budha.thedrake.media.TileMedia;
+
 /**
  * Created by havrda on 19/10/2017.
  */
@@ -24,5 +26,8 @@ public class EmptyTile extends Tile {
     public Troop troop(){
      throw new UnsupportedOperationException();
     }
-
+    @Override
+    public <T> T putToMedia(TileMedia<T> media) {
+        return media.putEmptyTile(this);
+    }
 }

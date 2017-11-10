@@ -8,13 +8,11 @@ public class CapturedTroops {
     private final List<TroopInfo> capturedOrange;
     private final List<TroopInfo> capturedBlue;
 
-
-    //TODO
     //Zajistěte, aby vaše implementace třídy CapturedTroops obsahovala konstruktor, který umí vyrobit instancti třídy ze dvou seznamů jednotek
     public CapturedTroops(List<TroopInfo> blueTroops, List<TroopInfo> orangeTroops){
-
+        capturedOrange = new ArrayList<TroopInfo>(orangeTroops);
+        capturedBlue = new ArrayList<TroopInfo>(blueTroops);
     }
-
     // Konstruktor vytvářející prázdné seznamy
     public CapturedTroops() {
         capturedOrange = new ArrayList<TroopInfo>();
@@ -26,6 +24,7 @@ public class CapturedTroops {
         if(side == PlayingSide.ORANGE) capturedOrange.add(0,info);
             else capturedBlue.add(0,info);
     }
+
     // Vrací seznam zajatých jednotek pro daného hráče
     public List<TroopInfo> troops(PlayingSide side) {
         return (side == PlayingSide.ORANGE) ?
