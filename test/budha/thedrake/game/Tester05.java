@@ -48,7 +48,7 @@ public class Tester05 {
                         "0\n" +
                         "BLUE\n" +
                         "BLUE stack: Drake Clubman Clubman Monk Spearman Swordsman Archer\n" +
-                        "ORANGE stack: Drake Clubman Clubman Monk Spearman Swordsman Archer\n"/*+
+                        "ORANGE stack: Drake Clubman Clubman Monk Spearman Swordsman Archer\n"+
                         "NL\n" +
                         "4\n" +
                         "empty\n" +
@@ -66,7 +66,7 @@ public class Tester05 {
                         "empty\n" +
                         "empty\n" +
                         "empty\n" +
-                        "empty\n" +
+                        "empty\n"/* +
                         "Captured BLUE: 0\n" +
                         "Captured ORANGE: 0"*/;
         assertEquals(expected01, baos01.toString());

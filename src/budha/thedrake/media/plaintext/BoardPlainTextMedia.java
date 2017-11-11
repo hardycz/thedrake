@@ -28,7 +28,7 @@ public class BoardPlainTextMedia extends PrintMedia implements BoardMedia<Void> 
 			w.println();
 		}
 		
-		capturedMedia.putCapturedTroops(board.captured());
+		//capturedMedia.putCapturedTroops(board.captured());
 		
 		return null;
 	}

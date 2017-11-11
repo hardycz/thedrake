@@ -27,6 +27,7 @@ public class TroopStacksPlainTextMedia extends PrintMedia implements TroopStacks
         for(TroopInfo troop : stacks.troops(PlayingSide.BLUE)){
             w.printf(" %s",troop.name());
         }
+        w.println();
         return null;
     }
 }

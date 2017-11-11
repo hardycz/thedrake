@@ -6,9 +6,15 @@ public enum TroopFace {
         public TroopFace flipped() {
             return FRONT;
         }
+        @Override
+        public String toString(){
+            return "FRONT";
+        }
     };
-
     public TroopFace flipped() {
         return BACK;
+    }
+    public String toString(){
+        return "BACK";
     }
 }

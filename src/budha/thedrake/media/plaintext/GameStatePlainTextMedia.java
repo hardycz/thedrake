@@ -19,7 +19,7 @@ public class GameStatePlainTextMedia extends PrintMedia implements GameStateMedi
         this.troopStacksMedia= new TroopStacksPlainTextMedia(stream);
         this.leadersMedia= new LeadersPlainTextMedia(stream);
     }
-
+    // TODO
     @Override
     public Void putPlacingLeadersGameState(PlacingLeadersGameState state) {
         PrintWriter w = writer();
@@ -36,8 +36,11 @@ public class GameStatePlainTextMedia extends PrintMedia implements GameStateMedi
         w.println(state.sideOnTurn().name());
         // Obsahy zasobniku
         state.troopStacks().putToMedia(troopStacksMedia);
-        // state.leaders().putToMedia(leadersMedia);
-        w.println();
+        // Pozice vudcu
+        state.leaders().putToMedia(leadersMedia);
+        //
+        state.board().putToMedia(boardMedia);
+
         return null;
     }
 
