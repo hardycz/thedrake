@@ -19,72 +19,58 @@ public class GameStatePlainTextMedia extends PrintMedia implements GameStateMedi
         this.troopStacksMedia= new TroopStacksPlainTextMedia(stream);
         this.leadersMedia= new LeadersPlainTextMedia(stream);
     }
-    // TODO
-    @Override
-    public Void putPlacingLeadersGameState(PlacingLeadersGameState state) {
+    public Void putUniversal(BaseGameState state){
         PrintWriter w = writer();
-        // TYP
-        w.println("LEADERS");
         // Pocet strazi
-        int guards = 4;
-        for(TroopInfo troop : state.troopStacks().troops(PlayingSide.BLUE))
-            if(troop.name()=="Clubman") guards--;
-        for(TroopInfo troop : state.troopStacks().troops(PlayingSide.ORANGE))
-            if(troop.name()=="Clubman") guards--;
-        w.println(guards);
+        w.println(state.troopStacks().guards());
         // Kdo je zrovna na tahu
         w.println(state.sideOnTurn().name());
         // Obsahy zasobniku
         state.troopStacks().putToMedia(troopStacksMedia);
         // Pozice vudcu
         state.leaders().putToMedia(leadersMedia);
-        //
+        // Vypis board
         state.board().putToMedia(boardMedia);
-
+        return null;
+    }
+    // TODO
+    @Override
+    public Void putPlacingLeadersGameState(PlacingLeadersGameState state) {
+        PrintWriter w = writer();
+        // TYP hry
+        w.println("LEADERS");
+        // Vypis
+        putUniversal(state);
         return null;
     }
 
     @Override
     public Void putPlacingGuardsGameState(PlacingGuardsGameState state) {
         PrintWriter w = writer();
-        // TYP
+        // TYP hry
         w.println("GUARDS");
-        // Pocet strazi
-        // placeholder - TBD
-        // Kdo je zrovna na tahu
-        w.println(state.sideOnTurn().name());
-        // Obsahy zasobniku
-        state.troopStacks().putToMedia(troopStacksMedia);
-
+        // Vypis
+        putUniversal(state);
         return null;
     }
 
     @Override
     public Void putMiddleGameState(MiddleGameState state) {
         PrintWriter w = writer();
-        // TYP
+        // TYP hry
         w.println("MIDDLE");
-        // Pocet strazi
-        // placeholder - TBD
-        // Kdo je zrovna na tahu
-        w.println(state.sideOnTurn().name());
-        // Obsahy zasobniku
-        state.troopStacks().putToMedia(troopStacksMedia);
-
+        // Vypis
+        putUniversal(state);
         return null;
     }
 
     @Override
     public Void putFinishedGameState(VictoryGameState state) {
         PrintWriter w = writer();
-        // TYP
+        // TYP hry
         w.println("VICTORY");
-        // Pocet strazi
-        // placeholder - TBD
-        // Kdo je zrovna na tahu
-        w.println(state.sideOnTurn().name());
-        // Obsahy zasobniku
-        state.troopStacks().putToMedia(troopStacksMedia);
+        // Vypis
+        putUniversal(state);
 
         return null;
     }

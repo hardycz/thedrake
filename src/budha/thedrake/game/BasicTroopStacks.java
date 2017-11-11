@@ -21,6 +21,15 @@ public class BasicTroopStacks implements TroopStacks {
         orangeTroops = Arrays.asList(troops);
     }
     @Override
+    public int guards(){
+        int guards = 4;
+        for(TroopInfo troop : blueTroops)
+            if(troop.name()=="Clubman") guards--;
+        for(TroopInfo troop : orangeTroops)
+            if(troop.name()=="Clubman") guards--;
+        return guards;
+    }
+    @Override
     public List<TroopInfo> troops(PlayingSide side) {
         return side == PlayingSide.BLUE ?
                 Collections.unmodifiableList(blueTroops) :

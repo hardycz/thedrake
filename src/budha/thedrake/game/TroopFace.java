@@ -8,13 +8,13 @@ public enum TroopFace {
         }
         @Override
         public String toString(){
-            return "FRONT";
+            return new String("FRONT");
         }
     };
     public TroopFace flipped() {
         return BACK;
     }
     public String toString(){
-        return "BACK";
+        return new String("BACK");
     }
 }
