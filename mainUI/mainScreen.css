@@ -1,0 +1,6 @@
+.background {
+    -fx-background-color: white;
+}
+.backgroundImage {
+    -fx-background-image: url("backgroundMenu.png");
+}
