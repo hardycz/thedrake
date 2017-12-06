@@ -20,19 +20,19 @@
                     <children>
                         <VBox prefHeight="179.0" prefWidth="214.0" spacing="10.0">
                      <children>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="#b05f6d" styleClass="background" text="Hra dvou hracu" textAlignment="CENTER" textFill="#c0392b">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Hra dvou hracu" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
                            </font></JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="#b05f6d" styleClass="background" text="Hra proti pocitaci" textAlignment="CENTER" textFill="#c0392b">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Hra proti pocitaci" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
                            </font></JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="#b05f6d" styleClass="background" text="Hra po internetu" textAlignment="CENTER" textFill="#c0392b">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Hra po internetu" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
                            </font></JFXButton>
-                        <JFXButton fx:id="exitButton" alignment="CENTER" buttonType="RAISED" onAction="#exitButtonClicked" prefHeight="40.0" prefWidth="250.0" ripplerFill="#b05f6d" styleClass="background" text="Konec" textAlignment="CENTER" textFill="#c0392b">
+                        <JFXButton fx:id="exitButton" alignment="CENTER" buttonType="RAISED" onAction="#exitButtonClicked" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Konec" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
                            </font></JFXButton>
