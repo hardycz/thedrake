@@ -1,5 +1,11 @@
 .background {
     -fx-background-color: white;
+    -fx-text-fill: #c0392b;
+}
+
+.background:hover{
+    -fx-background-color: #c0392b;
+    -fx-text-fill: white;
 }
 .backgroundImage {
     -fx-background-image: url("backgroundMenu.png");
