@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="533.0" prefWidth="800.0" styleClass="backgroundImage" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainUI.mainScreenController">
+<AnchorPane prefHeight="533.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainUI.mainScreenController">
     <stylesheets>
         <URL value="@mainScreen.css" />
     </stylesheets>
@@ -23,19 +23,23 @@
                         <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Hra dvou hracu" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
-                           </font></JFXButton>
+                           </font>
+                        </JFXButton>
                         <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Hra proti pocitaci" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
-                           </font></JFXButton>
+                           </font>
+                        </JFXButton>
                         <JFXButton alignment="CENTER" buttonType="RAISED" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Hra po internetu" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
-                           </font></JFXButton>
+                           </font>
+                        </JFXButton>
                         <JFXButton fx:id="exitButton" alignment="CENTER" buttonType="RAISED" onAction="#exitButtonClicked" prefHeight="40.0" prefWidth="250.0" ripplerFill="BLACK" styleClass="background" text="Konec" textAlignment="CENTER" textFill="#c0392b">
                            <font>
                               <Font name="Overpass Regular" size="19.0" />
-                           </font></JFXButton>
+                           </font>
+                        </JFXButton>
                      </children>
                         </VBox>
                     </children>
@@ -43,6 +47,14 @@
                   <Insets top="260.0" />
                </StackPane.margin>
                 </Group>
+            <Group layoutX="303.0" layoutY="313.0">
+               <children>
+                  <VBox prefHeight="282.0" prefWidth="305.0" spacing="10.0" styleClass="backgroundImage" />
+               </children>
+               <StackPane.margin>
+                  <Insets bottom="220.0" />
+               </StackPane.margin>
+            </Group>
             </children>
         </StackPane>
     </children>
