@@ -1,0 +1,8 @@
+/build/
+/dist/
+manifest.mf
+build
+build.xml
+.DS_Store
+thedrake.iml
+/nbproject/
